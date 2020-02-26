@@ -9,9 +9,9 @@ Crunchyroll filter systems are very limited and don't allow you to combine match
 
 We're following the sitemap in [robots.txt](https://www.crunchyroll.com/robots.txt) to get all public information provided by Crunchyroll and we're limited by that. 
 
-## Client
+## Web Application
 
-We're developing a web interface to make it more friendly to non-technical people.
+We're developing a web interface using flask to make it more friendly to non-technical people. Run it using `flask run`. 
 
 ## Contribution
 
