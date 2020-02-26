@@ -12,15 +12,21 @@ def home():
 
     genre = request.args.get('genre', None)
     sort_by = request.args.get('sort', None)
+    votes_threshold = int(request.args.get('threshold', '0'))
 
+    # Sort dataframe
     if sort_by:
         if sort_by == 'rate':
             df_ratings = df_ratings.sort_values(['rate', 'votes'], ascending=False)
         if sort_by == 'votes':
             df_ratings = df_ratings.sort_values(['votes', 'rate'], ascending=False)
 
+    # Filter by genre
     if genre:
         df_ratings = df_ratings[df_ratings[f'genre_{genre}'] == 1]
+
+    # Filter by quantity of votes
+    df_ratings = df_ratings[df_ratings['votes'] > votes_threshold]
 
     return render_template("home.html", df_animes=df_ratings.head(100), genres=genre_cols)
 

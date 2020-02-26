@@ -16,6 +16,10 @@
 
       }
 
+      .filters {
+        padding : 15px;
+      }
+
       .anime {
         margin: 8px;
         padding: 18px 18px 5px 18px;
@@ -52,59 +56,29 @@
 
     </style>
 
-    <title>Crunchyroll animes search</title>
+    <title>Crunchyroll Filters</title>
   </head>
   <body>
 
-
-<!--  <label for="genre">First name:</label>-->
-<!--  <input type="text" id="genre" name="genre"><br><br>-->
-<!--  <label for="sort">Last name:</label>-->
-<!--  <input type="text" id="sort" name="sort"><br><br>-->
-<!--</form>-->
-
-   <form action="/" method="get">
-     <label for="genre">genre</label>
+    <form action="/" method="get" class="filters">
+      <label for="genre">genre</label>
       <select id="genre" name="genre">
         {% for genre in genres %}
           <option value="{{ genre }}">{{ genre }}</option>
         {% endfor %}
       </select>
-     <label for="sort">genre</label>
-      <select id="sort" name="sort">
-          <option value="rate">most rated</option>
-          <option value="votes">most voted</option>
-      </select>
-       <input type="submit" value="Submit">
-   </form>
 
-<!--    <div class="container">-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire2/cccce22d1dfaaf713284a617ee0b539a1572467883_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--        <p class="anime-rating">5.3 with 1000 votes</p>-->
-<!--      </div>-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/1b8bbdf3fa604e61cbf760cd93a6ab901570139985_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--      </div>-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire2/1a39d39cbe3346cce5e44577cbb895041579741401_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--      </div>-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--      </div>-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--      </div>-->
-<!--      <div class="anime">-->
-<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
-<!--        <p class="anime-title">dakdsokd</p>-->
-<!--      </div>-->
-<!--    </div>-->
+      <label for="sort">sort</label>
+      <select id="sort" name="sort">
+        <option value="rate">most rated</option>
+        <option value="votes">most voted</option>
+      </select>
+
+      <label for="threshold">votes threshold</label>
+      <input type="text" id="threshold" name="threshold" value="0">
+
+      <input type="submit" value="Submit">
+    </form>
 
     <div class="container">
       {% for key, value in df_animes.iterrows() %}
