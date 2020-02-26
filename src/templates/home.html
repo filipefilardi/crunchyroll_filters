@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      body {
+        margin: 0 8%;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 15px 0;
+
+      }
+
+      .anime {
+        margin: 8px;
+        padding: 18px 18px 5px 18px;
+        border: 1px solid #ddd; /* Gray border */
+        border-radius: 4px;  /* Rounded border */
+      }
+
+      .anime:hover {
+        box-shadow: 0 0 2px 1px gray;
+        cursor: pointer;
+      }
+
+      .anime-title {
+        text-align: left;
+        font-size: 17px;
+        font-weight: bold;
+        color : #404040;
+        max-width:200px;
+        word-wrap:break-word;
+      }
+
+      .anime-rating {
+        font-size: 14px;
+        color : #606060;
+      }
+      .anime-image {
+         width: 230px;
+         height: auto;
+      }
+
+      a.link {
+        text-decoration: none;
+    }
+
+    </style>
+
+    <title>Crunchyroll animes search</title>
+  </head>
+  <body>
+
+
+<!--  <label for="genre">First name:</label>-->
+<!--  <input type="text" id="genre" name="genre"><br><br>-->
+<!--  <label for="sort">Last name:</label>-->
+<!--  <input type="text" id="sort" name="sort"><br><br>-->
+<!--</form>-->
+
+   <form action="/" method="get">
+     <label for="genre">genre</label>
+      <select id="genre" name="genre">
+        {% for genre in genres %}
+          <option value="{{ genre }}">{{ genre }}</option>
+        {% endfor %}
+      </select>
+     <label for="sort">genre</label>
+      <select id="sort" name="sort">
+          <option value="rate">most rated</option>
+          <option value="votes">most voted</option>
+      </select>
+       <input type="submit" value="Submit">
+   </form>
+
+<!--    <div class="container">-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire2/cccce22d1dfaaf713284a617ee0b539a1572467883_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--        <p class="anime-rating">5.3 with 1000 votes</p>-->
+<!--      </div>-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/1b8bbdf3fa604e61cbf760cd93a6ab901570139985_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--      </div>-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire2/1a39d39cbe3346cce5e44577cbb895041579741401_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--      </div>-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--      </div>-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--      </div>-->
+<!--      <div class="anime">-->
+<!--        <img src="https://img1.ak.crunchyroll.com/i/spire4/8056a82e973dde98ebb82abd39dc69731564519729_full.jpg" class="anime-image" />-->
+<!--        <p class="anime-title">dakdsokd</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="container">
+      {% for key, value in df_animes.iterrows() %}
+      <a href="{{ value['anime_url'] }}" class="link">
+        <div value="{{ key }}" class="anime">
+          <img src="{{ value['anime_img'] }}" class="anime-image" />
+          <p class="anime-title">{{ value['anime'] }}</p>
+          <p class="anime-rating">{{ value['rate'] }} with {{ value['votes'] }} votes</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </body>
+</html>
