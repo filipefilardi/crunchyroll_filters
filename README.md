@@ -7,7 +7,7 @@ Crunchyroll filter systems are very limited and don't allow you to combine match
 
 ## Crawler
 
-We're following the sitemap in [robots.txt](https://www.crunchyroll.com/robots.txt) to get all public information provided by Crunchyroll and we're limited by that. 
+We're following the sitemap in [robots.txt](https://www.crunchyroll.com/robots.txt) to get all public information provided by Crunchyroll in [this notebook](notebooks/crawler_crunchyroll.ipynb). 
 
 ## Web Application
 
