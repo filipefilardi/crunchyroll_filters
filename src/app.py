@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-    df_ratings = pd.read_csv('../data/ratings.csv')
+    df_ratings = pd.read_csv('../data/animes.csv')
 
     genre_cols = [col.replace('genre_', '') for col in df_ratings.columns if col.startswith('genre_')]
 
